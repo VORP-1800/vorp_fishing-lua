@@ -2,7 +2,7 @@ Config = {}
 
 Config.Debug = false
 
-Config.Lang = 'English'
+Config.Lang = 'Spanish'
 -- If you use -1 for testing the fish is very easy to catch --
 Config.Difficulty = 1250
 
