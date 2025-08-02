@@ -7,6 +7,7 @@ local fishForce = 0.6
 local nextAttTime = 0
 local horizontalMove = 0
 local status = nil
+local Core = exports.vorp_core:GetCore()
 
 local T = Translation.Langs[Config.Lang]
 
@@ -60,6 +61,11 @@ end)
 RegisterNetEvent("vorp_fishing:UseBait", function(UsableBait)
     if fishing then return end
 
+    local playerPed = PlayerPedId()
+    if Citizen.InvokeNative(0xDC88D06719070C39,playerPed) and not IsPedSwimming(playerPed) then
+        Core.NotifyRightTip(T.Stand, 4000)
+    end
+  
     Citizen.InvokeNative(0x1096603B519C905F, "MMFSH")
     prepareMyPrompt()
     fishing = true
@@ -145,7 +151,7 @@ RegisterNetEvent("vorp_fishing:UseBait", function(UsableBait)
                 if fishHandle then
                     local probabilidadePuxar = math.random()
                     if probabilidadePuxar > 0.9 or probabilidadePuxar < 0.2 then -- soltar linha
-                        if FISHING_GET_F_(5) == 1 then
+                       -- if FISHING_GET_F_(5) == 1 then
                             Citizen.InvokeNative(0xF0FBF193F1F5C0EA, fishHandle)
 
                             SetPedConfigFlag(fishHandle, 17, true)
@@ -161,7 +167,7 @@ RegisterNetEvent("vorp_fishing:UseBait", function(UsableBait)
                             fishForce = 0.6
 
                             FISHING_SET_TRANSITION_FLAG(4)
-                        end
+                      --  end
                     end
                 end
             end
@@ -333,7 +339,7 @@ RegisterNetEvent("vorp_fishing:UseBait", function(UsableBait)
                         Citizen.InvokeNative(0x9B0C7FA063E67629, PlayerPedId(), "", 0, 1)
                         FISHING_SET_TRANSITION_FLAG(64)
                         if Config.DiscordIntegration == true then
-                            TriggerServerEvent("vorp_fishing:discord", fishModel, fishing_data.fish.weight, status)
+                            TriggerServerEvent("vorp_fishing:discord", fishModel, fishing_data.fish.weight, status, GetPlayerServerId(PlayerId()))
                         end
                         SetEntityAsMissionEntity(entity, true, true)
                         Citizen.Wait(3000)
