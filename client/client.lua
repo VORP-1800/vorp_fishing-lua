@@ -122,23 +122,31 @@ RegisterNetEvent("vorp_fishing:UseBait", function(UsableBait)
 
                 local fishHandle
                 for _, f in pairs(GetNearbyFishs(hookPosition, 50.0)) do
-                    local fishPosition = GetEntityCoords(f)
-                    if Config.Debug then
-                        Citizen.InvokeNative(GetHashKey("DRAW_LINE") & 0xFFFFFFFF, fishPosition, fishPosition + vec3(0, 0, 2.0), 255, 255, 0, 255)
-                    end
+                    local fishModel = GetEntityModel(f)
 
-                    if fishing_lure_cooldown <= GetGameTimer() then
-                        local dist = #(hookPosition - fishPosition)
-                        if dist <= 1.6 then
-                            fishHandle = f
-                        else
-                            if isFishInterested(GetEntityModel(f)) then
-                                TaskGoToEntity(f, bobberPosition, 100, 1, 1.0, 2.0, 0)
-                            end
+                    if fishs[fishModel] ~= nil then
+                        local fishPosition = GetEntityCoords(f)
+                        if Config.Debug then
+                            Citizen.InvokeNative(GetHashKey("DRAW_LINE") & 0xFFFFFFFF, fishPosition, fishPosition + vec3(0, 0, 2.0), 255, 255, 0, 255)
                         end
 
-                        if lured == false then
-                            lured = true
+                        if fishing_lure_cooldown <= GetGameTimer() then
+                            local dist = #(hookPosition - fishPosition)
+                            if dist <= 1.6 then
+                                fishHandle = f
+                            else
+                                if isFishInterested(GetEntityModel(f)) then
+                                    TaskGoToEntity(f, bobberPosition, 100, 1, 1.0, 2.0, 0)
+                                end
+                            end
+
+                            if lured == false then
+                                lured = true
+                            end
+                        end
+                    else
+                        if Config.Debug then
+                            print("Ignoring non-mapped fish model:", fishModel)
                         end
                     end
                 end
