@@ -7,6 +7,7 @@ local fishForce = 0.6
 local nextAttTime = 0
 local horizontalMove = 0
 local status = nil
+local currentLure = nil
 local Core = exports.vorp_core:GetCore()
 
 local T = Translation.Langs[Config.Lang]
@@ -56,6 +57,30 @@ AddEventHandler("vorp_fishing:resetFishing", function()
     nextAttTime = 0
     horizontalMove = 0
     status = nil
+    currentLure = nil
+end)
+
+Core.Callback.Register("vorp_fishing:checkRodAndBait", function(CB, UsableBait)
+    local ped = PlayerPedId()
+    local _, weaponHash = GetCurrentPedWeapon(ped, true, 0, false)
+
+    if weaponHash ~= GetHashKey("WEAPON_FISHINGROD") then
+        Core.NotifyRightTip(T.NoFishingRodEquipped, 4000)
+        return CB({false})
+    end
+
+    if currentLure ~= nil then
+        if currentLure == UsableBait then
+            Core.NotifyRightTip(T.AlreadyHaveBait, 4000)
+            return CB({false})
+        else
+            fishing = false
+            Core.NotifyRightTip(T.ChangeBait, 4000)
+        end
+    end
+
+    currentLure = UsableBait
+    CB({true, currentLure})
 end)
 
 RegisterNetEvent("vorp_fishing:UseBait", function(UsableBait)
@@ -63,15 +88,13 @@ RegisterNetEvent("vorp_fishing:UseBait", function(UsableBait)
 
     local playerPed = PlayerPedId()
     if Citizen.InvokeNative(0xDC88D06719070C39,playerPed) and not IsPedSwimming(playerPed) then
-        Core.NotifyRightTip(T.Stand, 4000)
+        Core.NotifyRightTip(T.StandNearSide, 4000)
     end
   
     Citizen.InvokeNative(0x1096603B519C905F, "MMFSH")
     prepareMyPrompt()
     fishing = true
     local sleep = 1500
-    currentLure = UsableBait
-    UsableBait = nil
     ready = false
 
     while fishing do
@@ -319,6 +342,7 @@ RegisterNetEvent("vorp_fishing:UseBait", function(UsableBait)
                     if fishing then
                         FISHING_SET_TRANSITION_FLAG(32)
                         fishing = false
+                        currentLure = nil
                         status = "keep"
                         local entity = FISHING_GET_FISH_HANDLE()
                         -- check if its networked
@@ -341,6 +365,7 @@ RegisterNetEvent("vorp_fishing:UseBait", function(UsableBait)
                 if IsControlJustPressed(0, GetHashKey("INPUT_AIM")) then
                     if fishing then
                         fishing = false
+                        currentLure = nil
                         status = "throw"
                         local entity = FISHING_GET_FISH_HANDLE()
                         local fishModel = GetEntityModel(entity)
