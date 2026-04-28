@@ -6,8 +6,11 @@ Translation.Langs = {
     PrepRod = "Prepare Fishing Rod",
     ThrowHook = "Cast Fishing Rod",
     YourGot = "You got a",
-    standNearSide = "Stand near the side of the boat when fishing",
-
+    StandNearSide = "Stand near the side of the boat when fishing",
+    --------------------------------
+    NoFishingRodEquipped = "You need to have your fishing rod equipped first!",
+    AlreadyHaveBait = "You already have bait on your line!",
+    ChangeBait = "You replaced your old bait with a new one.",
     --------------------------------
     Fishing = "Fishing",
     HookFish = "Hook",
@@ -22,8 +25,10 @@ Translation.Langs = {
     KeepFish = "Keep Fish",
     ThrowFish = "Throw Fish",
     --------------------------------
+    CannotCarryMore = "can't carry more items",
+    --------------------------------
     discord_fishCaught = "caught a fish!",
-    discord_fishKept = "The fish was kept!  😁",
+    discord_fishKept = "The fish was kept! 😁",
     discord_fishThrow = "The fish was throw out! 😭",
     discord_fieldFishName = "🦈 Fish Name: ",
     discord_fieldFishWeight = "⚖ Weight: "
@@ -33,6 +38,11 @@ Translation.Langs = {
     PrepRod = "Preparar a cana de pesca",
     ThrowHook = "Lancar o anzol",
     YourGot = "You got a",
+    StandNearSide = "Stand near the side of the boat when fishing",
+    --------------------------------
+    NoFishingRodEquipped = "You need to have your fishing rod equipped first!",
+    AlreadyHaveBait = "You already have bait on your line!",
+    ChangeBait = "You replaced your old bait with a new one.",
     --------------------------------
     Fishing = "A pescar",
     HookFish = "Mexer o anzol",
@@ -47,8 +57,10 @@ Translation.Langs = {
     KeepFish = "Ficar com peixe",
     ThrowFish = "Largar o peixe",
     --------------------------------
+    CannotCarryMore = "can't carry more items",
+    --------------------------------
     discord_fishCaught = "apanhou um peixe!",
-    discord_fishKept = "Ficou com o peixe!  😁",
+    discord_fishKept = "Ficou com o peixe! 😁",
     discord_fishThrow = "Deitou um peixe tao bom fora! 😭",
     discord_fieldFishName = "🦈 Nome do Peixe: ",
     discord_fieldFishWeight = "⚖ Peso: "
@@ -58,7 +70,11 @@ Translation.Langs = {
     PrepRod = "Prepare a Vara de Pesca",
     ThrowHook = "Lance a Vara de Pesca",
     YourGot = "Você pegou um",
-    standNearSide = "Fique perto do lado do barco ao pescar",
+    StandNearSide = "Stand near the side of the boat when fishing",
+    --------------------------------
+    NoFishingRodEquipped = "You need to have your fishing rod equipped first!",
+    AlreadyHaveBait = "You already have bait on your line!",
+    ChangeBait = "You replaced your old bait with a new one.",
     --------------------------------
     Fishing = "Pescaria",
     HookFish = "Fisgar",
@@ -73,6 +89,8 @@ Translation.Langs = {
     KeepFish = "Manter Peixe",
     ThrowFish = "Soltar Peixe",
     --------------------------------
+    CannotCarryMore = "can't carry more items",
+    --------------------------------
     discord_fishCaught = "pegou um peixe!",
     discord_fishKept = "O peixe foi mantido! 😁",
     discord_fishThrow = "O peixe foi solto! 😭",
@@ -84,7 +102,11 @@ Translation.Langs = {
     PrepRod = "Prepara la Caña de Pescar",
     ThrowHook = "Lanza el Anzuelo",
     YourGot = "You got a",
-    standNearSide = "Ponte cerca del lado del barco al pescar",
+    StandNearSide = "Stand near the side of the boat when fishing",
+    --------------------------------
+    NoFishingRodEquipped = "You need to have your fishing rod equipped first!",
+    AlreadyHaveBait = "You already have bait on your line!",
+    ChangeBait = "You replaced your old bait with a new one.",
     --------------------------------
     Fishing = "Pescando",
     HookFish = "Anzuelo",
@@ -99,8 +121,10 @@ Translation.Langs = {
     KeepFish = "Guardar Pez",
     ThrowFish = "Liberar Pez",
     --------------------------------
+    CannotCarryMore = "can't carry more items",
+    --------------------------------
     discord_fishCaught = "ha capturado un pez!",
-    discord_fishKept = "El pez se ha guardado!  😁",
+    discord_fishKept = "El pez se ha guardado! 😁",
     discord_fishThrow = "El pez ha sido liberado! 😭",
     discord_fieldFishName = "🦈 Nombre del Pez: ",
     discord_fieldFishWeight = "⚖ Peso: "
@@ -110,7 +134,11 @@ Translation.Langs = {
     PrepRod = "Angelrute vorbereiten",
     ThrowHook = "Angelrute auswerfen",
     YourGot = "You got a",
-    standNearSide = "Stehe nahe am Rand des Bootes beim Angeln",
+    StandNearSide = "Stand near the side of the boat when fishing",
+    --------------------------------
+    NoFishingRodEquipped = "You need to have your fishing rod equipped first!",
+    AlreadyHaveBait = "You already have bait on your line!",
+    ChangeBait = "You replaced your old bait with a new one.",
     --------------------------------
     Fishing = "Angeln",
     HookFish = "Haken",
@@ -125,8 +153,10 @@ Translation.Langs = {
     KeepFish = "Fisch behalten",
     ThrowFish = "Fische freilassen",
     --------------------------------
+    CannotCarryMore = "can't carry more items",
+    --------------------------------
     discord_fishCaught = "Einen Fisch gefangen!",
-    discord_fishKept = "Der Fisch wurde behalten!  😁",
+    discord_fishKept = "Der Fisch wurde behalten! 😁",
     discord_fishThrow = "Der Fisch wurde freigelassen! 😭",
     discord_fieldFishName = "🦈 Fisch Name: ",
     discord_fieldFishWeight = "⚖ Gewicht: "
